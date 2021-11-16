@@ -1,0 +1,6 @@
+processName,ArrivalTime,ServiceTime,FinishTime,TAT,nTAT
+ProcessA,0,3,0,0,0
+ProcessB,0,2,0,0,0
+ProcessC,2,2,0,0,0
+ProcessD,3,1,0,0,0
+ProcessF,3,2,0,0,0
