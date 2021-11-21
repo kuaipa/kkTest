@@ -28,8 +28,6 @@ public class CreateCPU implements Runnable {
                 ProcessControlBlock p0 = processControlBlock.get(0);
                 processControlBlock.remove(p0);
                 System.out.println(pret + "running process:" + p0.processName);
-                for (int i = 0; i < processControlBlock.size(); i++) {
-                }
                 System.out.println(pret + "running time: 0s");
                 while (runningCount < 20) {
                     try {
@@ -55,6 +53,7 @@ public class CreateCPU implements Runnable {
                     p0.tat= p0.finishTime-p0.arrivalTime;
                     p0.nTAT=Double.valueOf(p0.tat)/Double.valueOf(p0.serviceTime);
                     finishQ.add(p0);
+
                 }
             } else {
                 try {
@@ -96,6 +95,7 @@ public class CreateCPU implements Runnable {
                 p0.tat= p0.finishTime-p0.arrivalTime;
                 p0.nTAT=Double.valueOf(p0.tat)/Double.valueOf(p0.serviceTime);
                 finishQ.add(p0);
+
             }
         }
 

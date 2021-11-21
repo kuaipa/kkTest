@@ -7,16 +7,14 @@ import java.util.Scanner;
  * Team 19
  */
 public class Main {
-    public static void main(String[] args) {
+    public void main() {
 
         GlobalTime.timerFlag = true;
         //create preProcessQueue to count arrivalTime
         ArrayList<ProcessControlBlock> preQ = new ArrayList<>();
         ProcessQ processQ = new ProcessQ();
         //ask for file
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("file address:");
-        String file = scanner.nextLine();
+        String file = "src/process.txt";
         //add process to the queue
         ArrayList<ProcessControlBlock> dQ =new ArrayList<>();
         processQ.MakeQ(dQ,file);

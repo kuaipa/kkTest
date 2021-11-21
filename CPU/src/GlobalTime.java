@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class GlobalTime implements Runnable {
     public static int globalTime;
     public static boolean timerFlag;
-    public static Double currentThroughPut;
     private ArrayList<ProcessControlBlock> finishQ;
 
     public GlobalTime(ArrayList<ProcessControlBlock> pcb) {
@@ -16,13 +15,20 @@ public class GlobalTime implements Runnable {
     @Override
     public void run() {
         while (timerFlag == true) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-            }
-            globalTime += 1;
-            if (globalTime != 0) {
-                currentThroughPut = Double.valueOf(finishQ.size()) / Double.valueOf(globalTime);
+            if (Process.pausingFlag == true) {
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException e) {
+                }
+            } else {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                }
+                globalTime += 1;
+                if (globalTime != 0) {
+                    GUI.currentThroughPut = Double.valueOf(finishQ.size()) / Double.valueOf(globalTime);
+                }
             }
 
         }

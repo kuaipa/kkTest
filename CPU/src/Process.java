@@ -7,7 +7,8 @@ import java.util.ArrayList;
  * Team 19
  */
 public class Process {
-    public static boolean pausingFlag = false;
+    public static boolean pausingFlag = true;
+
     //get information of each process and set them into an ArrayList
     public void getter(ArrayList<ProcessControlBlock> pcb, String fileAddress) {
         File file = new File(fileAddress);
@@ -37,7 +38,8 @@ public class Process {
                             k += 1;
                         }
                     }
-                    pcb.add(new ProcessControlBlock(name, P[0], P[1],0,0, 0,false,99.99));
+                    P[k] = Integer.parseInt(ids);
+                    pcb.add(new ProcessControlBlock(name, P[0], P[1], 0, 0, 0.0, false, 99.99));
                     k = 0;
                     count = 0;
                 }
